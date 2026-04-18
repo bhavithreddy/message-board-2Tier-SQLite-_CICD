@@ -1,0 +1,52 @@
+# 3-Tier Message Board — Docker Compose
+#
+#  Tier 1: frontend  → http://localhost:5000   (Flask UI)
+#  Tier 2: backend   → http://localhost:5001   (Flask REST API)
+#  Tier 3: database  → SQLite file in named volume
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: msgboard_backend
+    ports:
+      - "5001:5001"
+    volumes:
+      - db_data:/database
+    environment:
+      - DB_PATH=/database/messages.db
+    networks:
+      - msgboard_net
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:5001/api/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: msgboard_frontend
+    ports:
+      - "5000:5000"
+    environment:
+      - API_BASE=http://backend:5001/api
+    networks:
+      - msgboard_net
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  msgboard_net:
+    driver: bridge
