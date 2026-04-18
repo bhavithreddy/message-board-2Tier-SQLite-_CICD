@@ -96,10 +96,13 @@ Navigate to: **http://localhost:5000**
 
 
 
-<img width="1525" height="892" alt="Screenshot 2026-04-18 220717" src="https://github.com/user-attachments/assets/6a530383-479c-484a-8d49-eb099cc03678" />
 
 
 
+<img width="1525" height="892" alt="Screenshot 2026-04-18 220717" src="https://github.com/user-attachments/assets/7063f829-3853-4950-8a45-f6e47b82341d" />
+<img width="847" height="563" alt="Screenshot 2026-04-18 221706" src="https://github.com/user-attachments/assets/26cb315a-9fb2-4cc2-b686-c1941a914116" />
+<img width="792" height="412" alt="Screenshot 2026-04-18 221559" src="https://github.com/user-attachments/assets/bea4de7c-ae73-45e6-bb80-f2a3a9cf9e84" />
+<img width="1297" height="296" alt="Screenshot 2026-04-18 220800" src="https://github.com/user-attachments/assets/e5351ca0-8b7e-4622-a87d-177b6dbb72af" />
 
 
 
